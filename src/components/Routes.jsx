@@ -15,8 +15,9 @@ class Routes extends Component {
   setMyMeme(url, text) {
     const myMemes = [...this.state.myMemes];
     myMemes.push({
+      id,
       url,
-      text
+      text,
     });
     this.setState({ myMemes });
   }
@@ -25,16 +26,23 @@ class Routes extends Component {
     return (
       <div>
         <Switch>
-          <Route exact path="/" render={() => (
-            <Generator setMyMeme={this.setMyMeme} />
-          )}/>
-          <Route path="/mymemes" render={() => (
-            <MyMemes myMemes={this.state.myMemes} />
-          )}/>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <Generator setMyMeme={this.setMyMeme} />
+          )}
+          />
+          <Route
+            path="/mymemes"
+            render={() => (
+              <MyMemes myMemes={this.state.myMemes} />
+          )}
+          />
         </Switch>
       </div>
     );
   }
-};
+}
 
 export default Routes;

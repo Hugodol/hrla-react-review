@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 class Generator extends Component {
   constructor() {
@@ -25,12 +26,12 @@ class Generator extends Component {
         const allMemes = data.data.memes.map(meme => meme.url);
         this.setState({ allMemes });
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
 
   getRandomMeme() {
     const randomIndex = Math.floor(Math.random() * this.state.allMemes.length);
-    this.setState({ randomMeme: this.state.allMemes[randomIndex]});
+    this.setState({ randomMeme: this.state.allMemes[randomIndex] });
   }
 
   setText({ target }) {
@@ -51,12 +52,16 @@ class Generator extends Component {
         <button onClick={this.getRandomMeme}>
           Get Random Meme
         </button>
-        <img className="memeImg" src={this.state.randomMeme} />
+        <img className="memeImg" src={this.state.randomMeme} alt="" />
         <input onChange={this.setText} placeholder="write your own meme" value={this.state.text} />
         <button onClick={this.saveMeme}>Save Meme</button>
       </div>
     );
   }
 }
+
+Generator.propTypes = {
+  setMyMeme: PropTypes.func.isRequired,
+};
 
 export default Generator;
