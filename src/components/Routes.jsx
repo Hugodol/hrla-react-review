@@ -15,7 +15,6 @@ class Routes extends Component {
   setMyMeme(url, text) {
     const myMemes = [...this.state.myMemes];
     myMemes.push({
-      id,
       url,
       text,
     });
