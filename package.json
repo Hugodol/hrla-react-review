@@ -4,7 +4,7 @@
   "author": "Hugo Dolemieux",
   "license": "ISC",
   "scripts": {
-    "dev": "webpack --watch"
+    "dev": "webpack --progress -w"
   },
   "dependencies": {
     "axios": "^0.16.2",

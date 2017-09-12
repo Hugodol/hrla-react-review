@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import MemeEntry from './MemeEntry';
 
 const MyMemes = props => (
   <div className="myMemes">
     {props.myMemes.map((meme, i) =>
-      (<div key={i} className="myMeme">
-        <img src={meme.url} alt="" />
-        <span className="memeText">{meme.text}</span>
-      </div>),
+      <MemeEntry
+        key={i}
+        url={meme.url}
+        text={meme.text}
+      />
     )}
   </div>
 );
